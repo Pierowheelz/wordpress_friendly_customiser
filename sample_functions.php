@@ -24,7 +24,7 @@ function lrgc_custom_theme_settings( $fields ){
 		'type' => 'text', //possible options are: 'colour', 'alpha_colour', 'radio', 'select', 'textarea', 'checkbox', 'image', 'file', 'text'
 		'default' => 'Find Out More', //The default value
 	);
-	//we can retrieve this in our theme with get_theme_mod( 'down_button_text', 'Find Out More <i class="fa fa-angle-double-down"></i>' );
+	//we can retrieve this in our theme with get_theme_mod( 'down_button_text', 'Find Out More' );
 	
 	//The same simple example, with a live preview.
 	$fields[] = array(
