@@ -4,6 +4,7 @@ A drop in module for your WordPress theme to simplify the use of WordPress' Them
 Installation
 ==============
 Just drop in the friendly_customiser folder into your theme's root directory and put the below in your functions.php
+	
 	include_once( get_stylesheet_directory() . '/friendly_customiser/friendly_theme_customiser.php' );
 
 Sample Code
@@ -11,6 +12,7 @@ Sample Code
 Theme integration
 --------------
 Add the below to your functions.php file
+	
 	add_filter( 'wb_customiser_sections', 'register_your_settings_areas', 1 ); //set the third `order` parameter to adjust the position of the section
 	function register_your_settings_areas( $sections ){
 		
@@ -30,6 +32,7 @@ Add the below to your functions.php file
 Creating a settings area
 --------------
 Create a new settings area (eg. Global Colours) by adding the below to the function hooked to 'wb_customiser_sections'
+	
 	add_filter( 'wb_customiser_sections', 'register_your_settings_areas', 1 ); //set the third `order` parameter to adjust the position of the section
 	function register_your_settings_areas( $sections ){
 		
@@ -41,6 +44,7 @@ Create a new settings area (eg. Global Colours) by adding the below to the funct
 Creating a basic text area setting (without live previews)
 --------------
 A simple example, just setting some text as a theme mod.
+	
 	$fields[] = array(
 		'title' => 'Down Button Text', //The label for the field
 		'id' => 'down_button_text', //any unique string
@@ -48,11 +52,13 @@ A simple example, just setting some text as a theme mod.
 		'type' => 'text', //possible options are: 'colour', 'alpha_colour', 'radio', 'select', 'textarea', 'checkbox', 'image', 'file', 'text'
 		'default' => 'Find Out More', //The default value
 	);
+
 We can retrieve this in our theme with get_theme_mod( 'down_button_text', 'Find Out More' );
 
 Creating a text area setting with a live preview
 --------------
 The same simple example, with a live preview.
+	
 	$fields[] = array(
 		'title' => 'Down Button Text', //The label for the field
 		'id' => 'down_button_text', //any unique string
@@ -66,11 +72,13 @@ The same simple example, with a live preview.
 			'units' => '' //(optional) append a string
 		)
 	);
+
 We can retrieve this in our theme with get_theme_mod( 'down_button_text', 'Find Out More' );
 
 Creating a css colour setting with a live preview and auto-generated front end css code
 --------------
 A simple example used to set up the primary colour of text.
+	
 	$fields[] = array(
 		'title' => 'Primary Colour', //The label for the field
 		'id' => 'custom_primary_colour', //any unique string
@@ -89,6 +97,7 @@ A simple example used to set up the primary colour of text.
 A more advanced css colour setting with multiple selectors (color, background-color and border-color)
 --------------
 A complex example used to set up the primary colour classes of a theme.
+	
 	$fields[] = array(
 		'title' => 'Primary Colour', //The label for the field
 		'id' => 'custom_primary_colour', //any unique string
@@ -124,6 +133,7 @@ A complex example used to set up the primary colour classes of a theme.
 
 Creating a class setting with a drop down list and live preview
 --------------
+	
 	$fields[] = array(
 		'title' => 'Display Type', //The label for the field
 		'id' => 'gallery_display_type', //any unique string
@@ -145,12 +155,15 @@ Advanced installation
 Parent themes
 --------------
 By default this extension is set up to work with child themes (or standalone themes), if you are using this in a parent theme use the below hook
+	
 	add_filter( 'wb_customiser_theme_type', create_function( null, "return 'parent_theme';" ) );
 
 Installation directory or seamless integration
 --------------
 If you would like to include this extension in a different directory (instead of yourtheme/friendly_customiser/) you can use the below to customise the directory
+	
 	add_filter( 'wb_customiser_directory', create_function( null, "return '/includes/';" ) );
+	
 Simply set it to '/' to add the css or js files in your top level yourtheme/css and yourtheme/js folders.
 Note: the .php files can be placed anywhere regardless of this setting, but the two must be in the same directory
 
